@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+ul li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll {
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+
+@layer components {
+  .hoverEffect {
+    @apply relative uppercase font-semibold cursor-pointer hover:text-pink-300 py-3 after:w-full after:h-1 after:bg-pink-300 after:absolute after:bottom-0 after:left-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left;
+  }
+}
+
+@layer utilities {
+  .has-scrollbar {
+    padding-bottom: 5px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar {
+    width: 12px; /*for vertical scroll*/
+    height: 8px; /* for horizontal scroll */
+  }
+
+  .has-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 3px solid var(--white);
+    border-radius: 20px;
+  }
+
+  .has-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 90%);
+  }
+
+  .has-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 80%);
+  }
+}
